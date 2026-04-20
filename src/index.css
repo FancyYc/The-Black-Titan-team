@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Outfit:wght@100..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "Outfit", sans-serif;
+
+  --color-neon: #2aff6e;
+  --color-card-bg: #111111;
+  --color-sidebar-bg: #0a0a0a;
+  --color-bg-dim: #050505;
+  --color-text-muted: #888888;
+  --color-border: rgba(255, 255, 255, 0.1);
+
+  /* Neumorphism */
+  --color-neu-base: #E8EDF2;
+  --neu-shadow-dark: #C8CED5;
+  --neu-shadow-light: #FFFFFF;
+}
+
+@layer utilities {
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Neumorphism utilities */
+  .neu-raised {
+    background: var(--color-neu-base);
+    border-radius: 20px;
+    box-shadow: 8px 8px 18px var(--neu-shadow-dark), -8px -8px 18px var(--neu-shadow-light);
+  }
+  .neu-raised-sm {
+    background: var(--color-neu-base);
+    border-radius: 14px;
+    box-shadow: 5px 5px 12px var(--neu-shadow-dark), -5px -5px 12px var(--neu-shadow-light);
+  }
+  .neu-raised-lg {
+    background: var(--color-neu-base);
+    border-radius: 24px;
+    box-shadow: 12px 12px 24px var(--neu-shadow-dark), -12px -12px 24px var(--neu-shadow-light);
+  }
+  .neu-inset {
+    background: var(--color-neu-base);
+    border-radius: 16px;
+    box-shadow: inset 6px 6px 14px var(--neu-shadow-dark), inset -6px -6px 14px var(--neu-shadow-light);
+  }
+  .neu-inset-sm {
+    background: var(--color-neu-base);
+    border-radius: 10px;
+    box-shadow: inset 3px 3px 8px var(--neu-shadow-dark), inset -3px -3px 8px var(--neu-shadow-light);
+  }
+  .neu-btn {
+    background: var(--color-neu-base);
+    border-radius: 12px;
+    box-shadow: 4px 4px 10px var(--neu-shadow-dark), -4px -4px 10px var(--neu-shadow-light);
+    border: none;
+    transition: box-shadow 0.15s ease, transform 0.1s ease;
+  }
+  .neu-btn:hover:not(:disabled) {
+    box-shadow: 6px 6px 14px var(--neu-shadow-dark), -6px -6px 14px var(--neu-shadow-light);
+  }
+  .neu-btn:active, .neu-btn.active {
+    box-shadow: inset 3px 3px 8px var(--neu-shadow-dark), inset -3px -3px 8px var(--neu-shadow-light);
+  }
+  .neu-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  .neu-range {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--color-neu-base);
+    box-shadow: inset 3px 3px 6px var(--neu-shadow-dark), inset -3px -3px 6px var(--neu-shadow-light);
+    outline: none;
+  }
+  .neu-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--color-neu-base);
+    box-shadow: 3px 3px 8px var(--neu-shadow-dark), -3px -3px 8px var(--neu-shadow-light);
+    cursor: pointer;
+  }
+  .uppercase-mini {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #9AA3B0;
+    font-family: "JetBrains Mono", monospace;
+  }
+}
+
+@layer base {
+  body {
+    @apply antialiased;
+    background: #E8EDF2;
+  }
+}
